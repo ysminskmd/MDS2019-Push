@@ -2,7 +2,9 @@ package com.yandex.academy.mobdev.push
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import com.yandex.metrica.YandexMetrica
+import com.yandex.metrica.push.YandexMetricaPush
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +26,12 @@ class MainActivity : AppCompatActivity() {
         secondAnswer.setOnClickListener { answer(secondAnswer.text) }
 
         nextQuestion()
+
+        if (intent.action == YandexMetricaPush.OPEN_DEFAULT_ACTIVITY_ACTION) {
+            intent.getStringExtra(YandexMetricaPush.EXTRA_PAYLOAD)?.let { payload ->
+                Toast.makeText(this, "MainActivity: $payload", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     private fun answer(text: CharSequence) {
