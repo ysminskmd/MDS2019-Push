@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         nextQuestion()
 
         if (intent.action == YandexMetricaPush.OPEN_DEFAULT_ACTIVITY_ACTION) {
-            intent.getStringExtra(YandexMetricaPush.EXTRA_PAYLOAD)?.let { payload ->
+            intent?.getStringExtra(YandexMetricaPush.EXTRA_PAYLOAD)?.let { payload ->
                 Toast.makeText(this, "MainActivity: $payload", Toast.LENGTH_LONG).show()
             }
         }

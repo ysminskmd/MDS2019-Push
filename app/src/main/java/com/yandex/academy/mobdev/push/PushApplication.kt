@@ -10,7 +10,7 @@ class PushApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        val builder = YandexMetricaConfig.newConfigBuilder("dc5130b9-bebd-4f1c-bd3f-84eda53b9e48")
+        val builder = YandexMetricaConfig.newConfigBuilder("fb0774e0-14bc-4e3e-b077-3d3ada3d2147")
         YandexMetrica.activate(this, builder.build())
         YandexMetrica.enableActivityAutoTracking(this)
 
